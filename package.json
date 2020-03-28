@@ -1,0 +1,56 @@
+{
+  "name": "Pokedex",
+  "version": "1.0.0",
+  "description": "Nuxt.js Pokedex",
+  "author": "Maarten Van Hoof",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts -r dotenv/config",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
+    "generate": "nuxt generate",
+    "gqless:generate": "gqless generate"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "npm run lint",
+    "*.{css,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": ""
+    }
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^0.4.0",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "apollo-server": "^2.11.0",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "graphql-tag": "^2.10.3",
+    "graphql-type-json": "^0.3.1",
+    "nuxt": "^2.0.0",
+    "pokedex-promise-v2": "^3.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^0.6.0",
+    "@nuxtjs/eslint-config-typescript": "^1.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^3.1.0",
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.0.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^13.2.1",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-prettier": "^1.1.2"
+  }
+}
