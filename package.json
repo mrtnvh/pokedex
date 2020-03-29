@@ -24,13 +24,9 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxtjs/dotenv": "^1.4.0",
-    "apollo-server": "^2.11.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "graphql-tag": "^2.10.3",
-    "graphql-type-json": "^0.3.1",
-    "nuxt": "^2.0.0",
-    "pokedex-promise-v2": "^3.2.0"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

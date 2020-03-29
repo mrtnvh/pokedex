@@ -17,10 +17,6 @@ const configuration: Configuration = {
 
   loading: { color: '#fff' },
 
-  css: [],
-
-  serverMiddleware: ['~/serverMiddleware/graphql/index.ts'],
-
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/stylelint-module',
