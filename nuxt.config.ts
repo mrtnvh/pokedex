@@ -38,7 +38,22 @@ const configuration: Configuration = {
     '@nuxtjs/tailwindcss'
   ],
 
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa'],
+
+  pwa: {
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern:
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/.*',
+          handler: 'cacheFirst'
+        }
+      ]
+    },
+    meta: {
+      theme_color: '#F00000'
+    }
+  },
 
   plugins: ['~/plugins/api'],
 
