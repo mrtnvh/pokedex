@@ -1,7 +1,7 @@
 {
-  "name": "Pokedex",
+  "name": "pokedex",
   "version": "1.0.0",
-  "description": "Nuxt.js Pokedex",
+  "description": "Nuxt.js Pokédex",
   "author": "Maarten Van Hoof",
   "private": true,
   "scripts": {
@@ -23,10 +23,12 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.0",
+    "@nuxtjs/axios": "^5.9.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "pokeapi-sdk-typescript-axios": "git+https://github.com/vanhoofmaarten/pokeapi-sdk-typescript-axios.git#8ca3b768d4ffc5fb267053d3fc8f7787dd6fb78f"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

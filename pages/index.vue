@@ -24,9 +24,12 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  computed: {
-    list() {
-      return []
+  async asyncData({ app }) {
+    const { data } = await app.$api.listPokemons()
+
+    return {
+      // @ts-ignore
+      list: data.results
     }
   }
 })

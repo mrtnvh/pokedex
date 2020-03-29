@@ -1,6 +1,13 @@
 import { Configuration } from '@nuxt/types'
 
+const isDev = process.env.NODE_ENV !== 'production'
+const apiDevBaseUrl = 'http://localhost:8000/api/v2'
+
 const configuration: Configuration = {
+  env: {
+    ...(isDev && { apiBaseUrl: apiDevBaseUrl })
+  },
+
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -14,6 +21,11 @@ const configuration: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap'
+      }
     ]
   },
 
@@ -26,7 +38,13 @@ const configuration: Configuration = {
     '@nuxtjs/tailwindcss'
   ],
 
-  modules: ['@nuxtjs/dotenv']
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios'],
+
+  plugins: ['~/plugins/api'],
+
+  axios: {
+    ...(isDev && { baseUrl: apiDevBaseUrl })
+  }
 }
 
 export default configuration
