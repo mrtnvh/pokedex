@@ -1,7 +1,9 @@
 import { Configuration } from '@nuxt/types'
 
 const isDev = process.env.NODE_ENV !== 'production'
-const apiDevBaseUrl = 'http://localhost:8000/api/v2'
+const apiDevBaseUrl = `${
+  isDev ? 'http://localhost:8000' : 'https://pokeapi.co'
+}/api/v2`
 
 const configuration: Configuration = {
   env: {
