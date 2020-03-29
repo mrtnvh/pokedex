@@ -7,7 +7,7 @@ const apiDevBaseUrl = `${
 
 const configuration: Configuration = {
   env: {
-    ...(isDev && { apiBaseUrl: apiDevBaseUrl })
+    apiBaseUrl: apiDevBaseUrl
   },
 
   head: {
@@ -60,7 +60,7 @@ const configuration: Configuration = {
   plugins: ['~/plugins/api'],
 
   axios: {
-    ...(isDev && { baseUrl: apiDevBaseUrl })
+    baseUrl: apiDevBaseUrl
   }
 }
 
