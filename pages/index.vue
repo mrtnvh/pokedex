@@ -28,7 +28,6 @@ export default Vue.extend({
     const { data } = await app.$api.listPokemons()
 
     return {
-      // @ts-ignore
       list: data.results
     }
   }
