@@ -27,6 +27,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "pokeapi-sdk-typescript-axios": "git+https://github.com/vanhoofmaarten/pokeapi-sdk-typescript-axios.git#8ca3b768d4ffc5fb267053d3fc8f7787dd6fb78f"
   },

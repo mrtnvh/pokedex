@@ -17,7 +17,10 @@ module.exports = {
         ]
       }
     ],
-    'at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'mixin'] }],
+    'at-rule-no-unknown': [
+      true,
+      { ignoreAtRules: ['define-mixin', 'mixin', 'screen'] }
+    ],
     'at-rule-empty-line-before': [
       'always',
       {

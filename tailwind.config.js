@@ -9,6 +9,15 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif']
+      },
+      spacing: {
+        '1/1': '100%'
+      },
+      colors: {
+        red: {
+          '500': '#F00000',
+          '800': '#cc0000'
+        }
       }
     }
   },
