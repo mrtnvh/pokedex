@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col">
-    <AppHeader />
+    <AppHeader class="sticky top-0" />
     <main class="bg-gray-200 flex-grow">
       <nuxt />
     </main>
