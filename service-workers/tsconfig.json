@@ -1,0 +1,14 @@
+{
+  // "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext", "webworker"],
+    "sourceMap": false,
+  },
+  "files": ["index.ts"],
+  "exclude": ["node_modules"]
+}

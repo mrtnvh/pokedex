@@ -11,6 +11,7 @@
     "noEmit": true,
     "noImplicitAny": false,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
@@ -18,5 +19,5 @@
     },
     "typeRoots": ["./node_modules/@types", "./typings"]
   },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "exclude": ["node_modules", ".nuxt", "dist", "service-workers"]
 }

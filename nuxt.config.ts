@@ -1,17 +1,18 @@
 import { Configuration } from '@nuxt/types'
+import pkg from './package.json'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
 const configuration: Configuration = {
   head: {
-    title: process.env.npm_package_name || '',
+    title: pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: pkg.description
       }
     ],
     link: [
@@ -33,20 +34,24 @@ const configuration: Configuration = {
     '@nuxtjs/tailwindcss'
   ],
 
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa'],
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy'],
 
   pwa: {
     workbox: {
+      // dev: true,
+      importScripts: ['/sw/custom.js'],
       runtimeCaching: [
         {
-          urlPattern:
-            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/.*',
-          handler: 'cacheFirst'
+          urlPattern: '.*/(_nuxt|file)/.*',
+          handler: 'staleWhileRevalidate'
         }
       ]
     },
     meta: {
-      theme_color: '#F00000'
+      theme_color: '#F00000',
+      name: pkg.name,
+      description: pkg.description,
+      appleStatusBarStyle: 'black-translucent'
     }
   },
 

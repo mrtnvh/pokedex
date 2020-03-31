@@ -1,16 +1,17 @@
 {
   "name": "pokedex",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Nuxt.js Pokédex",
   "author": "Maarten Van Hoof",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts -r dotenv/config",
+    "dev": "run-p dev:**",
+    "dev:nuxt": "nuxt-ts -r dotenv/config",
+    "dev:sw": "webpack --watch --config service-workers/webpack.config.js",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
-    "generate": "nuxt generate",
-    "gqless:generate": "gqless generate"
+    "generate": "nuxt generate"
   },
   "lint-staged": {
     "*.{js,vue}": "npm run lint",
@@ -29,9 +30,11 @@
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
+    "idb": "^5.0.2",
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "pokeapi-sdk-typescript-axios": "git+https://github.com/vanhoofmaarten/pokeapi-sdk-typescript-axios.git#8ca3b768d4ffc5fb267053d3fc8f7787dd6fb78f",
+    "semver-utils": "^1.1.4"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
@@ -39,6 +42,8 @@
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
+    "@types/node": "^13.9.5",
+    "@types/webpack": "^4.41.9",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",
@@ -46,12 +51,16 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.0",
     "lint-staged": "^10.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "stylelint": "^13.2.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-recess-order": "^2.0.4",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "stylelint-prettier": "^1.1.2"
+    "stylelint-prettier": "^1.1.2",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3",
+    "webpack-cli": "^3.3.11"
   }
 }
