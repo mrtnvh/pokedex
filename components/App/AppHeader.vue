@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-red-500 text-white p-3">
+  <header class="bg-red-500 text-white p-3 shadow-lg">
     <div :class="$style.grid">
       <div
         id="#sensor"
