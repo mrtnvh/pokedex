@@ -2,8 +2,17 @@ import { Configuration } from '@nuxt/types'
 import pkg from './package.json'
 
 const isDev = process.env.NODE_ENV !== 'production'
+const apiBaseUrl = `${
+  isDev ? 'http://localhost:8000' : 'https://pokeapi.co'
+}/api/v2`
 
 const configuration: Configuration = {
+  modern: true,
+
+  env: {
+    apiBaseUrl
+  },
+
   head: {
     title: pkg.name,
     meta: [
@@ -34,7 +43,11 @@ const configuration: Configuration = {
     '@nuxtjs/tailwindcss'
   ],
 
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy'],
+  modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa' /* '@nuxtjs/proxy' */
+  ],
 
   pwa: {
     workbox: {
@@ -58,25 +71,25 @@ const configuration: Configuration = {
   plugins: ['~/plugins/api'],
 
   axios: {
-    baseUrl: '/api'
-  },
-
-  proxy: {
-    '/file/image': {
-      pathRewrite: {
-        '/file/image': '/'
-      },
-      target:
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
-    },
-    '/api': {
-      pathRewrite: {
-        '/api': '/api/v2'
-      },
-      target: isDev ? 'http://localhost:8000' : 'https://pokeapi.co',
-      changeOrigin: true
-    }
+    baseUrl: apiBaseUrl
   }
+
+  // proxy: {
+  //   '/file/image': {
+  //     pathRewrite: {
+  //       '/file/image': '/'
+  //     },
+  //     target:
+  //       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
+  //   },
+  //   '/api': {
+  //     pathRewrite: {
+  //       '/api': '/api/v2'
+  //     },
+  //     target: isDev ? 'http://localhost:8000' : 'https://pokeapi.co',
+  //     changeOrigin: true
+  //   }
+  // }
 }
 
 export default configuration

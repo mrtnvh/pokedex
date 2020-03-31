@@ -22,8 +22,8 @@ declare module 'vuex/types/index' {
   }
 }
 
-const ApiPlugin: Plugin = ({ $axios }, inject) => {
-  const api = DefaultApiFactory(undefined, '/api', $axios)
+const ApiPlugin: Plugin = ({ $axios, env }, inject) => {
+  const api = DefaultApiFactory(undefined, env.apiBaseUrl, $axios)
   inject('api', api)
 }
 

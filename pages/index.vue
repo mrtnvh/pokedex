@@ -7,7 +7,9 @@ import Vue from 'vue'
 import startCase from 'lodash/startCase'
 import PokemonGrid from '~/components/PokemonGrid.vue'
 
-const BASE_SPRITE = `/file/image`
+// const BASE_SPRITE = `/file/image`
+const BASE_SPRITE =
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
 
 export default Vue.extend({
   components: {
