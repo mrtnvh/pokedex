@@ -1,6 +1,5 @@
-import path from 'path'
 import * as tf from '@tensorflow/tfjs'
-import labels from './model/labels.json'
+import labels from './labels.json'
 import image from './image'
 
 const buildPretrainedModel = async () => {
@@ -42,12 +41,7 @@ const makePrediction = (pretrainedModel, model, imagePath) =>
     })
 
 export default async (imagePath) => {
-  const modelPath = path.join(
-    process.cwd(),
-    'serverMiddleware/image-recognition/model',
-    'model.json'
-  )
-  const model = await tf.loadLayersModel(`file://${modelPath}`)
+  const model = await tf.loadLayersModel('/image-recognition/model.json')
   const pretrainedModel = await buildPretrainedModel()
   return makePrediction(pretrainedModel, model, imagePath)
 }

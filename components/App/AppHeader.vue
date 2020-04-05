@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-red-500 text-white p-3 shadow-lg flex items-center">
+  <header class="bg-red-500 text-white px-3 shadow-lg flex items-center">
     <div :class="[$style.grid, 'flex-grow']">
       <div
         id="#sensor"
@@ -18,19 +18,27 @@
         class="w-3 h-3 bg-green-500 rounded-full border-white border-2"
       />
     </div>
-    <div>
-      <FileUpload v-model="prediction" />
+    <div class="py-3 mr-6">
+      <input
+        v-model="query"
+        type="search"
+        class="text-black py-2 px-3 rounded-md"
+        placeholder="Zoeken"
+      />
     </div>
+    <FileUpload class="mr-12" @input="handleFileUploadInput" />
     <div class="text-sm text-right">
-      <span class="font-bold">{{ greet }},</span> <br />
-      Floris & Adriaan
+      <span class="font-bold">{{ greet }},</span>
+      <br />Floris & Adriaan
     </div>
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import FileUpload from '../FileUpload.vue'
+import debounce from 'lodash/debounce'
+import { POKEMON_CONSTANTS } from '~/store/pokemon'
+const FileUpload = () => import('../FileUpload.vue')
 
 export default Vue.extend({
   components: {
@@ -58,6 +66,23 @@ export default Vue.extend({
       }
 
       return 'Tijd om te slapen'
+    },
+    query: {
+      get() {
+        return this.$store.getters[`pokemon/${POKEMON_CONSTANTS.SEARCH_GETTER}`]
+      },
+      set: debounce(function(value) {
+        // @ts-ignore
+        this.$store.dispatch(
+          `pokemon/${POKEMON_CONSTANTS.SEARCH_ASSIGN}`,
+          value
+        )
+      }, 250)
+    }
+  },
+  methods: {
+    handleFileUploadInput(value) {
+      this.query = value || ''
     }
   }
 })
@@ -66,7 +91,7 @@ export default Vue.extend({
 <style module>
 .grid {
   display: grid;
-  gap: theme('spacing.3');
+  gap: the me('spacing.3');
   grid-template-columns:
     theme('spacing.12') theme('spacing.3') theme('spacing.3')
     theme('spacing.3') 1fr;

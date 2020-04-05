@@ -11,9 +11,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended'
   ],
-  plugins: [
-    'prettier'
-  ],
+  plugins: ['prettier'],
   rules: {
-  },
+    'nuxt/no-this-in-fetch-data': 'off'
+  }
 }

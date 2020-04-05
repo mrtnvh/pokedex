@@ -1,15 +1,12 @@
-import { promises as fs } from 'fs'
 import * as tf from '@tensorflow/tfjs'
-import * as tfnode from '@tensorflow/tfjs-node'
 
-const loadSingle = async (src) => {
-  try {
-    const buffer = await fs.readFile(src)
-    return tfnode.node.decodeImage(buffer)
-  } catch (error) {
-    throw new Error(error)
-  }
-}
+const loadSingle = (src) =>
+  new Promise((resolve, reject) => {
+    const img = new Image()
+    img.src = src
+    img.onload = () => resolve(tf.browser.fromPixels(img))
+    img.onerror = (err) => reject(err)
+  })
 
 const resize = (image) => tf.image.resizeBilinear(image, [224, 224])
 

@@ -51,13 +51,6 @@ const configuration: Configuration = {
 
   plugins: ['~/plugins/api'],
 
-  serverMiddleware: [
-    {
-      path: '/image-recognition',
-      handler: '~/serverMiddleware/image-recognition/index.ts'
-    }
-  ],
-
   pwa: {
     workbox: {
       // dev: true,

@@ -1,5 +1,5 @@
 <template>
-  <label class="text-white mr-8 block">
+  <label class="text-white block">
     <svg
       height="512"
       viewBox="0 0 488.455 488.455"
@@ -20,21 +20,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import predict from '../lib/image-recognition/predict'
 
 export default Vue.extend({
   methods: {
     async onImageChange(e) {
       const files = e.target.files || e.dataTransfer.files
-      const formData = new FormData()
-
-      formData.append('image', files[0])
-
-      const data = await fetch('/image-recognition', {
-        method: 'POST',
-        body: formData
-      }).then((response) => response.text())
-
-      this.$emit('input', data)
+      const url = URL.createObjectURL(files[0])
+      const prediction = await predict(url).catch((err) => {
+        alert(err)
+      })
+      this.$emit('input', prediction)
     }
   }
 })
