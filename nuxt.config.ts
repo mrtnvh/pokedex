@@ -7,6 +7,8 @@ const apiBaseUrl = `${
 }/api/v2`
 
 const configuration: Configuration = {
+  mode: 'spa',
+
   modern: true,
 
   env: {
