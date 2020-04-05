@@ -44,7 +44,6 @@ const configuration: Configuration = {
   ],
 
   modules: [
-    '@nuxtjs/svg',
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
     '@nuxtjs/pwa' /* '@nuxtjs/proxy' */

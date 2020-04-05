@@ -19,7 +19,7 @@
       />
     </div>
     <div>
-      <FileUpload />
+      <FileUpload v-model="prediction" />
     </div>
     <div class="text-sm text-right">
       <span class="font-bold">{{ greet }},</span> <br />
@@ -35,6 +35,11 @@ import FileUpload from '../FileUpload.vue'
 export default Vue.extend({
   components: {
     FileUpload
+  },
+  data() {
+    return {
+      prediction: null
+    }
   },
   computed: {
     greet() {

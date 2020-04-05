@@ -15,14 +15,15 @@ export default function(
   // parse a file upload
   const form = new multiparty.Form()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  form.parse(req, async (err, fields, files) => {
-    if (err || !files) {
+  form.parse(req, (err, fields, files) => {
+    if (err) {
       res.statusCode = 400
       res.end(err)
     }
 
-    const prediction = await predict(files.image[0].path)
-    res.writeHead(200, { 'content-type': 'text/plain' })
-    res.end(prediction)
+    predict(files.image[0].path).then((prediction) => {
+      res.writeHead(200, { 'content-type': 'text/plain' })
+      res.end(prediction)
+    })
   })
 }

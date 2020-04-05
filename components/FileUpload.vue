@@ -27,15 +27,14 @@ export default Vue.extend({
       const files = e.target.files || e.dataTransfer.files
       const formData = new FormData()
 
-      formData.append('image', files)
+      formData.append('image', files[0])
 
       const data = await fetch('/image-recognition', {
         method: 'POST',
         body: formData
       }).then((response) => response.text())
 
-      console.log(data)
-      this.$emit('change', data)
+      this.$emit('input', data)
     }
   }
 })
