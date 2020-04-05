@@ -18,6 +18,9 @@
         class="w-3 h-3 bg-green-500 rounded-full border-white border-2"
       />
     </div>
+    <div>
+      <FileUpload />
+    </div>
     <div class="text-sm text-right">
       <span class="font-bold">{{ greet }},</span> <br />
       Floris & Adriaan
@@ -27,7 +30,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import FileUpload from '../FileUpload.vue'
+
 export default Vue.extend({
+  components: {
+    FileUpload
+  },
   computed: {
     greet() {
       const nowHour = new Date().getHours()

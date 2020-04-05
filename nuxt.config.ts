@@ -44,9 +44,19 @@ const configuration: Configuration = {
   ],
 
   modules: [
+    '@nuxtjs/svg',
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
     '@nuxtjs/pwa' /* '@nuxtjs/proxy' */
+  ],
+
+  plugins: ['~/plugins/api'],
+
+  serverMiddleware: [
+    {
+      path: '/image-recognition',
+      handler: '~/serverMiddleware/image-recognition/index.ts'
+    }
   ],
 
   pwa: {
@@ -67,8 +77,6 @@ const configuration: Configuration = {
       appleStatusBarStyle: 'black-translucent'
     }
   },
-
-  plugins: ['~/plugins/api'],
 
   axios: {
     baseUrl: apiBaseUrl

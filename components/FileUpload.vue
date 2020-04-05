@@ -1,0 +1,53 @@
+<template>
+  <label class="text-white mr-8 block">
+    <svg
+      height="512"
+      viewBox="0 0 488.455 488.455"
+      width="512"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-8 h-8 fill-current"
+    >
+      <path
+        d="m287.396 216.317c23.845 23.845 23.845 62.505 0 86.35s-62.505 23.845-86.35 0-23.845-62.505 0-86.35 62.505-23.845 86.35 0"
+      />
+      <path
+        d="m427.397 91.581h-42.187l-30.544-61.059h-220.906l-30.515 61.089-42.127.075c-33.585.06-60.925 27.429-60.954 61.029l-.164 244.145c0 33.675 27.384 61.074 61.059 61.074h366.338c33.675 0 61.059-27.384 61.059-61.059v-244.236c-.001-33.674-27.385-61.058-61.059-61.058zm-183.177 290.029c-67.335 0-122.118-54.783-122.118-122.118s54.783-122.118 122.118-122.118 122.118 54.783 122.118 122.118-54.783 122.118-122.118 122.118z"
+      />
+    </svg>
+    <input type="file" name="image" class="hidden" @change="onImageChange" />
+  </label>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  methods: {
+    async onImageChange(e) {
+      const files = e.target.files || e.dataTransfer.files
+      const formData = new FormData()
+
+      formData.append('image', files)
+
+      const data = await fetch('/image-recognition', {
+        method: 'POST',
+        body: formData
+      }).then((response) => response.text())
+
+      console.log(data)
+      this.$emit('change', data)
+    }
+  }
+})
+</script>
+
+<style module>
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.input {
+  display: none;
+}
+</style>
