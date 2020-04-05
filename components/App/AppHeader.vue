@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-red-500 text-white px-3 shadow-lg flex items-center">
+  <header class="bg-red-500 text-white px-4 shadow-lg flex items-center">
     <div :class="[$style.grid, 'flex-grow']">
       <div
         id="#sensor"
@@ -23,14 +23,14 @@
         v-model="query"
         type="search"
         class="text-black py-2 px-3 rounded-md"
-        placeholder="Zoeken"
+        placeholder="Search"
       />
     </div>
-    <FileUpload class="mr-12" @input="handleFileUploadInput" />
-    <div class="text-sm text-right">
+    <FileUpload class="mr-2" @input="handleFileUploadInput" />
+    <!-- <div class="text-sm text-right">
       <span class="font-bold">{{ greet }},</span>
       <br />Floris & Adriaan
-    </div>
+    </div> -->
   </header>
 </template>
 
