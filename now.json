@@ -2,16 +2,7 @@
   "builds": [
     {
       "src": "nuxt.config.ts",
-      "use": "@nuxtjs/now-builder",
-      "config": {
-        "serverFiles": ["serverMiddleware/**"]
-      }
+      "use": "@nuxtjs/now-builder"
     }
-  ],
-
-  "build": {
-    "env": {
-      "BASE_URL": "https://nuxt-gqless.now.sh"
-    }
-  }
+  ]
 }
