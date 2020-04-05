@@ -8,7 +8,6 @@ const apiBaseUrl = `${
 
 const configuration: Configuration = {
   mode: 'spa',
-
   modern: true,
 
   env: {
@@ -70,11 +69,11 @@ const configuration: Configuration = {
       description: pkg.description,
       appleStatusBarStyle: 'black-translucent'
     }
-  }
+  },
 
-  // axios: {
-  //   baseUrl: apiBaseUrl
-  // }
+  axios: {
+    baseUrl: apiBaseUrl
+  }
 
   // proxy: {
   //   '/file/image': {

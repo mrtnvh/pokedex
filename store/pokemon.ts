@@ -40,7 +40,7 @@ export const actions = {
     //   .listPokemons(0, MAX_AMOUNT)
 
     // @ts-ignore
-    const response = await this.$axios.get('/pokemon.json')
+    const response = await this.$axios.get('/pokemon.json', { baseURL: '' })
 
     const payload = response?.data?.results?.map((pokemon, index) => ({
       ...pokemon,
