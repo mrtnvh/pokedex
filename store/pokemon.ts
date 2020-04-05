@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
 import startCase from 'lodash/startCase'
 
-const MAX_AMOUNT = 150
+const MAX_AMOUNT = 151
 const BASE_SPRITE =
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon'
 
@@ -35,9 +35,12 @@ export const mutations = {
 
 export const actions = {
   async [POKEMON_CONSTANTS.LIST_FETCH]({ commit }) {
-    const response = await this.$api
-      // @ts-ignore
-      .listPokemons(0, MAX_AMOUNT)
+    // const response = await this.$api
+    //   // @ts-ignore
+    //   .listPokemons(0, MAX_AMOUNT)
+
+    // @ts-ignore
+    const response = await this.$axios.get('/pokemon.json')
 
     const payload = response?.data?.results?.map((pokemon, index) => ({
       ...pokemon,
