@@ -37,7 +37,7 @@
     "idb": "^5.0.2",
     "lodash": "^4.17.15",
     "multiparty": "^4.2.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "pokeapi-sdk-typescript-axios": "git+https://github.com/vanhoofmaarten/pokeapi-sdk-typescript-axios.git#8ca3b768d4ffc5fb267053d3fc8f7787dd6fb78f",
     "semver-utils": "^1.1.4"
   },
